@@ -1,7 +1,5 @@
-class UserMailer < ActionMailer::Base
-  default :from => "noreply@mydomain.com"
-  def registration_confirmation(user)
-    @user = user
-    mail (:to => "#{user.name}< #{user.email}>", :subject => "Please confirm your registration")
-  end
+class UserMailer < Devise::Mailer
+  helper :application # gives access to all helpers defined within `application_helper`.
+  include Devise::Controllers::UrlHelpers # Optional. eg. `confirmation_url`
+  default template_path: 'devise/mailer' # to make sure that your mailer uses the devise views
 end

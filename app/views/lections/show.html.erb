@@ -1,0 +1,27 @@
+<p>
+  <strong>Title:</strong>
+  <%= @lection.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lection.description %>
+</p>
+
+<p>
+  <strong>Speciality:</strong>
+  <%= @lection.speciality %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @lection.body %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @lection.tags %>
+</p>
+
+<%= link_to 'Edit', edit_lection_path(@lection) %> |
+<%= link_to 'Back', lections_path %>

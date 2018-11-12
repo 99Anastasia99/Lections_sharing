@@ -1,0 +1,2 @@
+module LectionsHelper
+end

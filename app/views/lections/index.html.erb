@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Speciality</th>
+      <th>Body</th>
+      <th>Tags</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lections.each do |lection| %>
+      <tr>
+        <td><%= lection.title %></td>
+        <td><%= lection.description %></td>
+        <td><%= lection.speciality %></td>
+        <td><%= lection.body %></td>
+        <td><%= lection.tags %></td>
+        <td><%= link_to 'Show', lection %></td>
+        <td><%= link_to 'Edit', edit_lection_path(lection) %></td>
+        <td><%= link_to 'Destroy', lection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lection', new_lection_path %>

@@ -1,0 +1,45 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="post">
+            <div class="post-header well well-sm">
+              <span class="post-author vcard">Posted by <a href="#"><%= lection.user.username %></a></span>
+              <span class="badge" class="pull-left"> at <%= lection.created_at %> </span>
+              <div class="pull-right"><span class="label label-default">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
+                <span class="label label-danger">Danger</span>
+              </div>
+            </div>
+            <div class="container">
+              <div class="col-md-12">
+                <h1><%= lection.title %></h1>
+                <hr>
+                <span class="card-title"><%= lection.description %> | Speciality: <%= lection.speciality %> </span>
+                <hr>
+                <p><%= lection.body %></p>
+                <span class="pull-center"> <%= link_to "Read More",lection,class: "btn btn-primary" %> </span>
+                <span class="post-comment-link pull-right"><a class="comment-link" href="#" onclick="">1 comment:</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% if current_user %>
+<% if current_user==lection.user or current_user.admin %>
+<%= link_to 'Destroy', lection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+<% end %>

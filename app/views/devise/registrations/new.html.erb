@@ -1,6 +1,9 @@
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<!------ Include the above in your HEAD tag ---------->s
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
 <div class="container">
   <div class="row" style="margin-top:20px">
@@ -11,7 +14,13 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <div class="form-group">
-          <%= f.email_field :email, autofocus: true, class: 'form-control input-lg', autocomplete: "email",placeholder: "Email adress" %>
+          <div class="social-buttons">
+            <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+            <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+            <a href="#" class="btn btn-vk"><i class="fa fa-vk"></i> Vkontakte</a>
+          </div>
+        <br> <%= f.text_field :username, class: 'form-control input-lg', autocomplete: "username",placeholder: "Username" %> </br>
+       <%= f.email_field :email, autofocus: true, class: 'form-control input-lg', autocomplete: "email",placeholder: "Email adress" %>
         </div>
 
         <div class="form-group">
@@ -27,7 +36,7 @@
         </div>
         <hr class="colorgraph">
         <div class="row">
-          <%= f.submit "Sign up", class: 'btn btn-outline-warning btn-lg' %>
+          <%= f.submit "Sign up", class: 'btn btn-lg btn-success btn-block' %>
         </div>
         <% end %>
         <hr>
