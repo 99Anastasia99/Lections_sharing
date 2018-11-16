@@ -1,1 +1,13 @@
-<%= render Lection.all %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <%= render Lection.all %>
+      </div>
+    <div class="col-md-4">
+      <% if current_user %>
+      <%= render 'layouts/widget' if current_user %>
+      <%= render 'layouts/tags_widget' %>
+      <% end %>
+    </div>
+  </div>
+</div>

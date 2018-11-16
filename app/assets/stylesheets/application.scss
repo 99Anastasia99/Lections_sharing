@@ -10,9 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+ .css1 { font-size: 1.0em; }
+ .css2 { font-size: 1.2em; }
+ .css3 { font-size: 1.4em; }
+ .css4 { font-size: 1.6em; }
+ @import "bootstrap";
  .colorgraph {
    height: 5px;
    border-top: 0;
@@ -23,75 +26,49 @@
    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
  }
- .panel-table .panel-body{
-   padding:0;
+ #tagscloud {
+   width: 250px;
+   height: 260px;
+   position: relative;
+   font-size: 12px;
+   color: #333;
+   margin: 20px auto 0;
+   text-align: center;
  }
- .table-responsive {height: 34 * 6}
-
- .panel-table .panel-body .table-bordered{
-   border-style: none;
-   margin:0;
- }
-
- .panel-table .panel-body .table-bordered > thead > tr > th:first-of-type {
-     text-align:center;
-     width: 100px;
- }
-
- .panel-table .panel-body .table-bordered > thead > tr > th:last-of-type,
- .panel-table .panel-body .table-bordered > tbody > tr > td:last-of-type {
-   border-right: 0px;
- }
-
- .panel-table .panel-body .table-bordered > thead > tr > th:first-of-type,
- .panel-table .panel-body .table-bordered > tbody > tr > td:first-of-type {
-   border-left: 0px;
- }
-
- .panel-table .panel-body .table-bordered > tbody > tr:first-of-type > td{
-   border-bottom: 0px;
+ #tagscloud a {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   color: #333;
+   font-family: Arial;
+   text-decoration: none;
+   margin: 0 10px 15px 0;
+   line-height: 18px;
+   text-align: center;
+   font-size: 12px;
+   padding: 1px 5px;
+   display: inline-block;
+   border-radius: 3px;
  }
 
- .panel-table .panel-body .table-bordered > thead > tr:first-of-type > th{
-   border-top: 0px;
+ #tagscloud a.tagc1 {
+   background: #666;
+   color: #fff;
  }
 
- .panel-table .panel-footer .pagination{
-   margin:0;
+ #tagscloud a.tagc2 {
+   background: #F16E50;
+   color: #fff;
+ }
+ #tagscloud a.tagc3 {
+   background: #006633;
+   color: #fff;
+}
+ #tagscloud a:hover {
+   color: #fff;
+   background: #0099ff;
  }
 
- /*
- used to vertically center elements, may need modification if you're not using default sizes.
- */
- .panel-table .panel-footer .col{
-  line-height: 34px;
-  height: 34px;
- }
-
- .panel-table .panel-heading .col h3{
-  line-height: 30px;
-  height: 30px;
- }
-
- .panel-table .panel-body .table-bordered > tbody > tr > td{
-   line-height: 34px;
- }
-
- #login-dp{
-     min-width: 250px;
-     padding: 14px 14px 0;
-     overflow:hidden;
-     background-color:rgba(255,255,255,.8);
- }
- #login-dp .help-block{
-     font-size:12px
- }
- #login-dp .bottom{
-     background-color:rgba(255,255,255,.8);
-     border-top:1px solid #ddd;
-     clear:both;
-     padding:14px;
- }
  #login-dp .social-buttons{
      margin:12px 0
  }
@@ -99,7 +76,7 @@
      width: 49%;
  }
  #login-dp .form-group {
-     margin-bottom: 10px;
+     margin-bottom: 6px;
  }
  .btn-fb{
      color: #fff;
@@ -135,7 +112,6 @@
          border-top:0 none;
      }
  }
-
  .post {padding: 10px;color: rgb(102, 102, 102);overflow: hidden;line-height: 2em;margin-bottom: 10px;margin: 10px;}
 .post h2 { margin-top:0px; }
 .panel-body {padding: 0px;}

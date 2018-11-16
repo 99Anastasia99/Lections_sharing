@@ -3,8 +3,20 @@ class LectionsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index,]
   # GET /lections
   # GET /lections.json
+
   def index
     @lections = Lection.all
+  end
+  def tag_cloud
+    @tags = Lection.tag_counts_on(:tags)
+  end
+
+  def tagged
+    if params[:tag].present?
+      @lections = Lection.tagged_with(params[:tag])
+    else
+      @lections = Lection.all
+    end
   end
 
   # GET /lections/1
@@ -25,7 +37,7 @@ class LectionsController < ApplicationController
   # POST /lections.json
   def create
     @lection = Lection.new(lection_params)
-      @lection = current_user.lections.new(lection_params)
+    @lection = current_user.lections.new(lection_params)
     respond_to do |format|
       if @lection.save
         format.html { redirect_to @lection, notice: 'Lection was successfully created.' }
@@ -62,13 +74,13 @@ class LectionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_lection
-      @lection = Lection.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_lection
+    @lection = Lection.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def lection_params
-      params.require(:lection).permit(:title, :description, :speciality, :body, :tags)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def lection_params
+    params.require(:lection).permit(:title, :description, :speciality, :body, :tag_list)
+  end
 end

@@ -5,7 +5,6 @@ class CreateLections < ActiveRecord::Migration[5.2]
       t.string :description
       t.integer :speciality
       t.text :body
-      t.string :tags
 
       t.timestamps
     end

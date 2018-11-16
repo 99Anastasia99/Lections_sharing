@@ -1,17 +1,86 @@
+<%= form_with(model: lection, local: true) do |form| %>
+<br>
+<div class="container">
 
-<%= simple_form_for(@lection) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<% if lection.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(lecture_note.errors.count, "error") %> prohibited this lection from being saved:</h2>
+<ul>
+<% lection.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :speciality %>
-    <%= f.input :body %>
-    <%= f.input :tags %>
-  </div>
+<div class="card">
+<div class="card-body">
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<div class="row">
+<div class="col-md-12">
+<h4>Create new Lection</h4>
+<hr>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<div class="form-group row">
+<%= form.label :title, class: "col-4 col-form-label" %>
+<div class="col-8">
+<%= form.text_field :title, class: "form-control" %>
+</div>
+</div>
+
+<div class="form-group row">
+<%= form.label :description, class: "col-4 col-form-label" %>
+<div class="col-8">
+<%= form.text_field :description, class: "form-control" %>
+</div>
+</div>
+
+<div class="form-group row">
+<%= form.label :speciality, class: "col-4 col-form-label" %>
+<div class="col-8">
+<%= form.number_field :speciality, class: "form-control" %>
+</div>
+</div>
+
+<div class="form-group row">
+<%= form.label :body, class: "col-4 col-form-label" %>
+<div class="col-8">
+<%= form.text_area :body, class: "form-control" %>
+</div>
+</div>
+
+<div class="form-group row">
+<%= form.label :tags, class: "col-4 col-form-label" %>
+<div class="col-8">
+<%= form.text_field :tag_list, class: "form-control" %>
+</div>
+</div>
+
+<div class="form-group row">
+<div class="offset-4 col-8">
+
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="row">
+<hr>
+<div class="col-10">
+<%= link_to 'Back', lections_path, :class => "btn btn-primary" %>
+</div>
+
+<div class="col-2">
+<%= form.submit 'Create', :class => "btn btn-primary" %>
+</div>
+</div>
+
+</div>
+</div>
+</div>
 <% end %>
