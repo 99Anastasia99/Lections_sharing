@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.3.3'
 gem 'best_in_place', '~> 3.0.1'
+gem "jquery-rails"
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'bootstrap'
-gem 'jquery-rails'
 gem 'simple_form'
 gem 'popper_js'
 gem 'tether-rails'

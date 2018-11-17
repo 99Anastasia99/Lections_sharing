@@ -1,30 +1,38 @@
 <div class="card mb-4">
+  <h6 class="card-header">
+    <span data-toggle="tooltip" data-placement="left" title="Click here to see the profile">
+      <%=link_to lection.user.username, lection.user %>
+   </span>
+   <span class="badge badge-pill badge-secondary float-right">Created at <%= lection.created_at.toDateTime %></span>
+   <% if current_user && current_user==lection.user or current_user.admin %>
+   <div class="btn-group dropright float-right">
+   <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+   <div class="dropdown-menu">
+     <a class="dropdown-item"><%= link_to 'Destroy', lection, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+     <a class="dropdown-item" href="#">Another action</a>
+     <a class="dropdown-item" href="#">Something else here</a>
+     <div class="dropdown-divider"></div>
+     <a class="dropdown-item" href="#">Separated link</a>
+   </div>
+ </div>
+ <% end %>
+  </h6>
   <div class="card-body">
-    <div class="post">
-      <div class="post-header well well-sm">
-        <span class="glyphicon glyphicon-user" id="start"> <%=link_to lection.user.username, lection.user %></span>
-        <span class="badge" class="pull-left" class ="label label-info">  at <%= lection.created_at.toDateTime %></span>
-        <div class="pull-right">
-          <% lection.tag_list.each do |tag| %>
-          <span class="badge pull-right"><%= tag %></span>
-          <% end %>
-        </div>
-        <h1><%= lection.title %></h1>
-        <hr>
-        <span class="card-title"><%= lection.description %> | Speciality: <%= lection.speciality %> </span>
-        <hr>
-        <% if lection.body.length > 250 %>
-        <%= truncate(lection.body, length: 250) %>
-        <%= link_to "Read More",lection,class: "btn btn-primary" %>
-        <% else %>
-        <%= lection.body %>
-        <% end %>
-      </div>
-    </div>
+    <h1><%= lection.title %></h1>
+    <hr>
+    <h6 class="card-title"><%= lection.description %> | Speciality: <%= lection.speciality %> </h6>
+    <hr>
+    <% if lection.body.length > 250 %>
+    <%= truncate(lection.body, length: 250) %>
+    <% else %>
+    <%= lection.body %>
+    <% end %>
+
+  </div>
+  <div class="card-footer text-muted">
+    <% lection.tag_list.each do |tag| %>
+    <span class="badge badge-pill badge-info"><%= tag %></span>
+    <% end %>
+    <%= link_to "Read More", lection ,class: "btn btn-outline-info float-right"%>
   </div>
 </div>
-<% if current_user %>
-<% if current_user==lection.user or current_user.admin %>
-<%= link_to 'Destroy', lection, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<% end %>

@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card my-2">
     <h5 class="card-header"> Your tags </h5>
   <div class="card-body">
     <div id="tagscloud">
-    <% tag_cloud( Lection.tag_counts_on(:tags), %w(tagc1 tagc2 tagc3)) do |tag, css_class| %>
+    <% tag_cloud( Lection.tag_counts_on(:tags), %w(css1 css2 css3)) do |tag, css_class| %>
     <%= link_to tag.name , root_path, :class => css_class %>
   <% end %>
   </div>

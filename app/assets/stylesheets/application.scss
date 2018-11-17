@@ -26,49 +26,6 @@
    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
  }
- #tagscloud {
-   width: 250px;
-   height: 260px;
-   position: relative;
-   font-size: 12px;
-   color: #333;
-   margin: 20px auto 0;
-   text-align: center;
- }
- #tagscloud a {
-   position: absolute;
-   top: 0px;
-   left: 0px;
-   color: #333;
-   font-family: Arial;
-   text-decoration: none;
-   margin: 0 10px 15px 0;
-   line-height: 18px;
-   text-align: center;
-   font-size: 12px;
-   padding: 1px 5px;
-   display: inline-block;
-   border-radius: 3px;
- }
-
- #tagscloud a.tagc1 {
-   background: #666;
-   color: #fff;
- }
-
- #tagscloud a.tagc2 {
-   background: #F16E50;
-   color: #fff;
- }
- #tagscloud a.tagc3 {
-   background: #006633;
-   color: #fff;
-}
- #tagscloud a:hover {
-   color: #fff;
-   background: #0099ff;
- }
-
  #login-dp .social-buttons{
      margin:12px 0
  }
