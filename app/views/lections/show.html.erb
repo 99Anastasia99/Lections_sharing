@@ -22,6 +22,20 @@
   <strong>Tags:</strong>
   <%= @lection.tag_list %>
 </p>
-
+<% if current_user %>
+<%= form_with model: [@lection,@comment] do |f| %>
+<%= f.text_field :body %>
+<%= f.submit "Comment" %>
+<% end %>
+<% else %>
+<p>
+  You need to <%= link_to "Sign in", new_session_path %>
+  </p>
+  <% end %>
+<div id="comment_pane">
+<% @comments.each do |comment| %>
+<%= render 'comments/comment', comment: comment %>
+<% end %>
+</div>
 <%= link_to 'Edit', edit_lection_path(@lection) %> |
 <%= link_to 'Back', lections_path %>

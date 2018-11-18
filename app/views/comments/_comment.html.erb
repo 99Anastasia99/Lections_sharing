@@ -1,0 +1,10 @@
+<div id="comment-<%= comment.id %>">
+[<%= time_ago_in_words(comment.created_at) %> ago] by
+ <%= link_to comment.user.username, comment.user %>
+ <%= comment.body %>
+ <% if current_user && current_user==comment.user || current_user.admin?%>
+<%= link_to "Delete", lection_comment_path(@lection, comment),method: :delete, remote: true, style: 'float: right' %>
+<hr />
+ <% end %>
+<br/>
+</div>

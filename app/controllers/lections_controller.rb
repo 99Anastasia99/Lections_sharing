@@ -3,14 +3,12 @@ class LectionsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index,]
   # GET /lections
   # GET /lections.json
-
   def index
     @lections = Lection.all
   end
   def tag_cloud
     @tags = Lection.tag_counts_on(:tags)
   end
-
   def tagged
     if params[:tag].present?
       @lections = Lection.tagged_with(params[:tag])
@@ -22,6 +20,8 @@ class LectionsController < ApplicationController
   # GET /lections/1
   # GET /lections/1.json
   def show
+    @comment = Comment.new
+    @comments = @lection.comments.order( "created_at DESC")
   end
 
   # GET /lections/new
