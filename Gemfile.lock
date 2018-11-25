@@ -95,6 +95,7 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.25-x86-mingw32)
+    filterrific (5.1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.1.1)
@@ -165,6 +166,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redcarpet (3.4.0)
     regexp_parser (1.2.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -220,6 +222,7 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    will_paginate (3.1.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -236,6 +239,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  filterrific
   jbuilder (~> 2.5)
   jquery-datatables-rails (~> 3.4.0)
   jquery-rails
@@ -243,6 +247,7 @@ DEPENDENCIES
   popper_js
   puma (~> 3.11)
   rails (~> 5.2.1)
+  redcarpet
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form
@@ -252,6 +257,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  will_paginate (~> 3.1.0)
 
 RUBY VERSION
    ruby 2.3.3p222

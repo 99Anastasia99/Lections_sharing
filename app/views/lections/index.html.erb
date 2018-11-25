@@ -20,7 +20,7 @@
         <td><%= lection.title %></td>
         <td><%= lection.description %></td>
         <td><%= lection.speciality %></td>
-        <td><%= lection.body %></td>
+        <td><%= markdown(lection.body) %></td>
         <td><%= lection.tag_list%></td>
         <td><%= link_to 'Show', lection %></td>
         <td><%= link_to 'Edit', edit_lection_path(lection) %></td>

@@ -4,10 +4,14 @@
       <div id="comment-<%= comment.id %>">
       By  <strong><%= link_to comment.user.username, comment.user %> </strong>
       </h5>
+      <div class="card-body">
       <%= comment.body %>
       <%#= link_to "Delete", lection_comment_path(@lection, comment),method: :delete, remote: true, style: 'float: right' %>
-      <%# <%= link_to "Like", {:controller => "comments", method: :like_dislike} %>
-      <hr />
+      <% if comment!=nil %>
+     <div id="likes_counter<%= comment.id %>" class="btn btn-danger btn-sm float-right" > <%= comment.likers_count %>  </div>
+     <% end %>
+  <%= link_to "Like", { :controller => "comments", :action => "like_dislike", :comment => comment }, method: :post, remote: true, class: "btn btn-outline-danger btn-sm float-right", id: "like_button" + comment.id.to_s %>
+      </div>
     <div class="card-footer text-muted">
         <%= time_ago_in_words(comment.created_at) %> ago
       </div>

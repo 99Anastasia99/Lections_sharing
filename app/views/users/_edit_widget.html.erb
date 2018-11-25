@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h5> Profile editting </h5>
+    </div>
+    <div class="card-body">
+    <strong>  <label for="username"> Username </label> </strong>
+    <div><%= best_in_place @user, :username, :as => :input, id: "username"%></div>
+    <%= render 'users/change_email' %>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+  </div>
+</div>

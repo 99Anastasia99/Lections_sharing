@@ -1,41 +1,68 @@
-<p>
-  <strong>Title:</strong>
-  <%= @lection.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @lection.description %>
-</p>
-
-<p>
-  <strong>Speciality:</strong>
-  <%= @lection.speciality %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @lection.body %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @lection.tag_list %>
-</p>
-<% if current_user %>
-<%= form_with model: [@lection,@comment] do |f| %>
-<%= f.text_field :body %>
-<%= f.submit "Comment" %>
-<% end %>
-<% else %>
-<p>
-  You need to <%= link_to "Sign in", new_session_path %>
+<div class="container">
+  <div class="card mb-4">
+    <h6 class="card-header">
+      <span data-toggle="tooltip" data-placement="left" title="Click here to see the profile">
+        By <%=link_to @lection.user.username, @lection.user  %>
+        <div class="badge badge-pill badge-secondary float-right">Created at <%= @lection.created_at.toDateTime %></div>
+      </span>
+    </h6>
+    <div class="card-body">
+      <span data-toggle="tooltip" data-placement="right" title="Click here to edit">
+        <% if current_user %>
+        <% if  current_user==@lection.user  || current_user.admin %>
+        <div class="btn-group dropleft float-right">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+          <div class="dropdown-menu">
+            <%= link_to 'Destroy', @lection,class:"dropdown-item align-middle" , method: :delete, data: { confirm: 'Are you sure?' } %>
+            <td><%= link_to 'Edit', edit_lection_path(@lection),class:"dropdown-item align-middle" %></td>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+        <h1><%= @lection.title %></h1>
+        <hr>
+        <h6 class="card-title"><%= @lection.description %> | Speciality: <%= @lection.speciality %> </h6>
+        <hr>
+        <%= markdown(@lection.body) %>
+      </div>
+      <div class="card-footer text-muted">
+        <% @lection.tag_list.each do |tag| %>
+        <span class="badge badge-pill badge-info"><%= tag %></span>
+        <% end %>
+        <div class="badge badge-pill badge-primary float-right"> Updated at <%= @lection.updated_at.toDateTime %></div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h2>  Let's comment! </h2>
+      </div>
+      <div class="card-body">
+        <% if current_user %>
+        <%= form_with model: [@lection,@comment] do |f| %>
+        <div class="row">
+          <div class="col-md-10">
+          <%= f.text_field :body, class: "form-control form-control-lg" %>
+          </div>
+          <%= f.submit "Comment", class:  "btn btn-outline-info" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% else %>
+  <p>
+    You need to <%= link_to "Sign in", new_session_path %>
   </p>
   <% end %>
-<div id="comment_pane">
-<% @comments.each do |comment| %>
-<%= render 'comments/comment', comment: comment %>
-<% end %>
-</div>
-<%= link_to 'Edit', edit_lection_path(@lection) %> |
-<%= link_to 'Back', lections_path %>
+  <div id="comment_pane">
+    <% @comments.each do |comment| %>
+    <%= render 'comments/comment', comment: comment %>
+    <% end %>
+  </div>
+  <%= link_to 'Edit', edit_lection_path(@lection) %> |
+  <%= link_to 'Back', lections_path %>

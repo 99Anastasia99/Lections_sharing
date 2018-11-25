@@ -1,0 +1,32 @@
+
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card">
+        <div class = "card-header">
+          <%= form_for_filterrific @filterrific do |f| %>
+          <div class="row">
+            <div class="col-md-4">
+              Search
+              <%= f.text_field :search_query,class: "filterrific-periodically-observed form-control", placeholder:"Search by title" %>
+            </div>
+            <div class="col-md-4">
+              Speciality
+              <%= f.text_field :with_speciality,class: "filterrific-periodically-observed form-control", placeholder:"filter by speciality" %>
+            </div>
+            <div class="float-right">
+              <%= link_to('Reset filters',reset_filterrific_url, class: "btn btn-outline-info float-right btn-sm") %>
+              <%= link_to 'New lection', new_lection_path , class: "btn btn-outline-info  float-right btn-sm" %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <div class = "card-body">
+          <%= render( partial: 'users/lections_list', locals: { lection: @lections }) %>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-3">
+      <%= render 'users/edit_widget' if current_user %>
+      <%= render 'users/info_widget' %>
+    </div>
+  </div>

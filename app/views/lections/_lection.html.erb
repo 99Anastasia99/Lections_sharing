@@ -2,7 +2,7 @@
   <h6 class="card-header">
     <span data-toggle="tooltip" data-placement="left" title="Click here to see the profile">
   By <%=link_to lection.user.username, lection.user %>
-            <div class="badge badge-pill badge-secondary float-right">Created at <%= lection.created_at.toDateTime %></div>
+            <div class="badge badge-pill badge-secondary float-right">Created at <%= lection.created_at.to_s.split('UTC')[0] %></div>
     </span>
   </h6>
   <div class="card-body">
@@ -28,7 +28,7 @@
     <% if lection.body.length > 250 %>
     <%= truncate(lection.body, length: 250) %>
     <% else %>
-    <%= lection.body %>
+    <%= markdown(lection.body) %>
     <% end %>
 
   </div>
